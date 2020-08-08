@@ -7,5 +7,7 @@ The purpose of the analysis was to create a macro that would be easily accessibl
 ### Summary: In a summary statement, address the following questions.
 
 ### What are the advantages or disadvantages of refactoring code?
+Refactoring code makes it cleaner and easier to read.  It's like editing a draft in order to make it more presentable.  You're not changing the behavior, or the outcome of the code, you're just making it run more efficiently.  A possible disadvantage is that you introduce bugs (which I certainly did) into the code by refactoring it.  Those bugs will have to be addressed before you can run the code against the original to see if it performs more efficiently.
 
 ### How do these pros and cons apply to refactoring the original VBA script?
+The refactored code does look cleaner and has a better format that makes it easier to read line by line.  However, in the process of refactoring the code, I must've ran into dozens of bugs that I created by incorrectly writting it.  Given the time I had to put into writting it correctly, compared to the small difference in efficiency gained, I don't know that it was worth it in a vacuum to refactor in this scenario.  (Of course it was well worth it as a learning experience).
