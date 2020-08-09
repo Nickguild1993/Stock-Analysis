@@ -16,8 +16,51 @@ In terms of execution time for the analysis, the refactored code was **faster** 
 ![alt_text](https://github.com/Nickguild1993/Stock-Analysis/blob/master/Bar%20chart%20of%20Code%20Run%20Times.png)
 
 
-### Advantages and Disadvantages of refactoring code.
+### Advantages and disadvantages of refactoring code.
 An advantage of refactoring code is that doing so makes it cleaner and easier to read.  It's like editing a draft in order to make it more presentable.  You're not changing the behavior, or the outcome of the code, you're just making it run more efficiently. A possible disadvantage is that you introduce bugs (which I certainly did) into the code by refactoring it.  Those bugs will have to be addressed before you can run the code against the original to see if it indeed performs more efficiently.
 
-### How those pros and cons applied to this instance.
-The refactored code does look cleaner and has a better format that makes it easier to read line by line. Also, the refactored script does run faster than the original for both the analysis of 2017 and 2018. However, in the process of refactoring the code, I must've ran into dozens of bugs that I created by incorrectly rewriting it.  Given the time I had to put into writting it correctly, compared to the small difference in efficiency gained, (the refactored code was about 28 hundreths of a second faster) I don't know that it was worth it in a vacuum to refactor in this scenario.  Of course, it was well worth it as a learning experience.  
+### How those advantages and disadvantages applied.
+The refactored code does look cleaner and has a better format that makes it easier to read line by line. If look at the original script's conditionals used to run the analysis each stocks total volume, starting, and ending price, you can see it is less efficient than the refactored code's condtionals, which are posted below the original. One concept we learned in module number 2 was **"DRY"** which is an acronym for *don't repeate yourself*. By refactoring the code, some of the unneeded repetition from the original script could be removed.
+
+                     **Original Script**                                          
+                    
+  For i = 0 To 11 
+        ticker = tickers(i)                                                                
+        totalvolume = 0
+    Worksheets(yearValue).Activate                                                            
+        For J = 2 To RowCount                                                                  
+        If Cells(J,1).Value= ticker Then                                                     
+          TotalVolume = Totalvolume + Cells(J,8).Value                              
+    End If
+        If Cells(J-1,1).Value <> Ticker AND Cells(J,1).Value = ticker Then             
+          startingPrice = Cells(J,6).Value                                                                
+    End if                                                                                            
+        If Cells(J+1,1).Value <> ticker and Cells(J,1).Value = ticker Then                   
+          EndingPrice = Cells(J, 6).Value                                                          
+    End If                                                               
+    
+                    **Refactored Script**
+   For i = 0 To 11
+      tickerVolumes(i) = 0
+   Next i
+      For i = 2 to RowCount
+    
+      Next i
+   
+ tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value
+       
+    
+    If Cells(i - 1, 1).Value <> tickers(tickerIndex) Then
+        tickerStartingPrices(tickerIndex) = Cells(i, 6).Value
+    End If
+     
+    If Cells(i + 1, 1).Value <> tickers(tickerIndex) Then
+        tickerEndingPrices(tickerIndex) = Cells(i, 6).Value
+        tickerIndex = tickerIndex + 1
+    End If
+
+    
+    
+    
+
+Also, the refactored script does run faster than the original for both the analysis of 2017 and 2018. I'm sure this increase in processing speed is derived from having the script only contain exactly what it needs in order to run, without any unnecessary lines. However, in the process of refactoring the code, I must've run into dozens of bugs that I created by incorrectly rewriting it.  Given the time I had to put into writting it correctly, compared to the small difference in efficiency gained, (the refactored code was about 28 hundreths of a second faster) I don't know that it was worth it in a vacuum to refactor in this scenario.  Of course, it was well worth it as a learning experience. And whenever I write much more complex scripts in the future, I'm sure that refactoring the code will be incredibly useful and in some cases necessary. 
