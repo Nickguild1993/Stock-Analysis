@@ -1,8 +1,8 @@
-## Overview of Project: 
+## Overview of VBA Stock Analysis Project 
 
 The purpose of this analysis was to create macros that would be easily accessible for Steve, or any other end-user to utilize.  Specifically, we were looking at 12 different stocks that Steve's parents were thinking about investing in. We wanted to see the total volume of each stock (meaning how often each stock was traded) from the beginning to the end of the year for the years we have data on, which are 2017 and 2018.  Additonally, we wanted to see the percentage return for each of the 12 stocks over a year long period.  By doing this analysis, Steve will be somewhat better able to recommend which (if any) of those stocks his parents should invest in.  To do this analysis, two macros were used- the original script from the module, and a refactored version of that script.  While the output of the macros was the same, the efficiency of the two versions differed- something that will be discussed below.
 
-### Results of the analysis on stock performance for 2017 and 2018.
+### Results of the analysis on stock volume and performance for 2017 and 2018.
 2017 was a much better year in terms of valuation for every single one of the 12 selected stocks except for the company with **"RUN"** as their ticker.  **"DQ"**, the oringinal stock that Steve's parents were interested in for *very rational* reasons, highlights the difference in performance from '17 to '18.  In 2017, **"DQ"** price **increased 199.4%** but in 2018, **decreaesd 62.6%**.  Overall, this seems like a very volatile sector, and for Steve's parents, who can be assumed to be close to retirement, I would suggest that they look at either index funds, vanguard 20XX funds, or frankly, just fixed income options.  In order to help visualize the change over time for the selected stocks, I've inserted the tables of all 12 stock's performances for both 2017 and 2018.
 
 ![alt_text](https://github.com/Nickguild1993/Stock-Analysis/blob/master/2017%20Chart%20Analysis.png)
